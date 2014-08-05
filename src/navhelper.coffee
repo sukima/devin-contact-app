@@ -2,6 +2,19 @@ $            = require "jquery"
 _            = require "underscore"
 ContactInfo  = require "./contactinfo.coffee"
 ContactsView = require "./contactsview.coffee"
+PGPInfo      = require "./pgpinfo.coffee"
+PGPView      = require "./pgpview.coffee"
+ErrorView    = require "./errorview.coffee"
+
+renderViewInto = (view, pageEl) ->
+	pageEl = $(pageEl)
+	(data, type, reason) ->
+		view.render(data, type, reason)
+		pageEl.find("div[data-role=content]").prepend(view.el)
+		pageEl.trigger "create"
+
+renderErrorInto = (pageEl) ->
+	renderViewInto new ErrorView(), pageEl
 
 module.exports = NavHelper =
 
@@ -32,6 +45,7 @@ module.exports = NavHelper =
 	loadContactInfo: ->
 		contactInfo  = new ContactInfo()
 		contactsView = new ContactsView(collection: contactInfo)
-		contactInfo.fetch(reset: true).then ->
-			$("#contact>div[data-role=content]").prepend(contactsView.el)
-			contactsView.render()
+
+		contactInfo.fetch(reset: true)
+		.then(renderViewInto contactsView, "#contact")
+		.fail(renderErrorInto "#contact")

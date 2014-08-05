@@ -17,7 +17,6 @@ class ContactsView extends Backbone.View
   render: ->
     listHTML = @collection.map (model) => @template model.toJSON()
     @$el.html listHTML.join("")
-    $("#contact").trigger("create")
     this
 
 module.exports = ContactsView

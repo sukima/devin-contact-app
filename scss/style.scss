@@ -20,6 +20,16 @@ img.right {
   margin-top: 40px;
 }
 
+.error {
+  text-align:       center;
+  padding:          15px;
+  border:           1px solid transparent;
+  border-radius:    4px;
+  color:            #A94442;
+  background-color: #F2DEDE;
+  border-color:     #EBCCD1;
+}
+
 @media screen and (max-width: 320px) {
   #selfpic {
     width:  114px;
