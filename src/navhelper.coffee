@@ -4,6 +4,8 @@ ContactInfo  = require "./contactinfo.coffee"
 ContactsView = require "./contactsview.coffee"
 PGPInfo      = require "./pgpinfo.coffee"
 PGPView      = require "./pgpview.coffee"
+Projects     = require "./projects.coffee"
+ProjectsView = require "./projectsview.coffee"
 ErrorView    = require "./errorview.coffee"
 
 renderViewInto = (view, pageEl) ->
@@ -57,3 +59,11 @@ module.exports = NavHelper =
 		pgpInfo.fetch(reset: true)
 		.then(renderViewInto pgpView, "#pgp")
 		.fail(renderErrorInto "#pgp")
+
+	loadProjects: ->
+		projects     = new Projects()
+		projectsView = new ProjectsView(collection: projects)
+
+		projects.fetch(reset: true)
+		.then(renderViewInto projectsView, "#projects")
+		.fail(renderErrorInto "#projects")

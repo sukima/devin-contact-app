@@ -119,7 +119,12 @@
     <h1>Projects</h1>
   </div>
 
-  <div data-role="content"></div>
+  <div data-role="content">
+    <a href="http://tritarget.org/blog/categories/coding/" rel="external" data-role="button">
+      <img src="icons/166-newspaper.png" alt="newspaper icon" width="28" height="23" valign="middle">
+      View my programming blog
+    </a>
+  </div>
 </div>
 
 <script id="back-button" type="text/html">
@@ -150,6 +155,13 @@
     <img src="icons/54-lock.png" alt="lock icon" valign="middle">
     Download PGP Key
   </a>
+</script>
+
+<script id="template-projects" type="text/html">
+  <div data-role="collapsible">
+    <h3><%= section %></h3>
+    <%= content %>
+  </div>
 </script>
 
 </body>

@@ -14,6 +14,7 @@ $ ->
   NavHelper.addGravatarIcons()
   NavHelper.loadContactInfo()
   NavHelper.loadPGPInfo()
+  NavHelper.loadProjects()
   $.mobile.initializePage()
 
   new AppRouter()
