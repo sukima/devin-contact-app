@@ -1,0 +1,10 @@
+{
+  "key_id": "12345",
+  "fingerprint": "12345 67890",
+  "fingerprint_parts": [
+    "12345",
+    "67890"
+  ],
+  "filename": "User.asc",
+  "key_url": "http://example.com/key.asc"
+}

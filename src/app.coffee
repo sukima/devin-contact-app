@@ -13,6 +13,7 @@ $ ->
   NavHelper.addBackButtons()
   NavHelper.addGravatarIcons()
   NavHelper.loadContactInfo()
+  NavHelper.loadPGPInfo()
   $.mobile.initializePage()
 
   new AppRouter()

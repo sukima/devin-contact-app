@@ -49,3 +49,11 @@ module.exports = NavHelper =
 		contactInfo.fetch(reset: true)
 		.then(renderViewInto contactsView, "#contact")
 		.fail(renderErrorInto "#contact")
+
+	loadPGPInfo: ->
+		pgpInfo = new PGPInfo()
+		pgpView = new PGPView(model: pgpInfo)
+
+		pgpInfo.fetch(reset: true)
+		.then(renderViewInto pgpView, "#pgp")
+		.fail(renderErrorInto "#pgp")
