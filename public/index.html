@@ -77,7 +77,7 @@
   </div>
 </div>
 
-<div id="about" data-role="page" data-theme="d" data-backbtn="true" data-gravatar="true">
+<div id="about" data-role="page" data-theme="d" data-backbtn="index" data-gravatar="true">
   <div data-role="header" data-theme="c">
     <h1>About Me</h1>
   </div>
@@ -100,7 +100,7 @@
   </div>
 </div>
 
-<div id="contact" data-role="page" data-theme="d" data-backbtn="true" data-gravatar="true">
+<div id="contact" data-role="page" data-theme="d" data-backbtn="index" data-gravatar="true">
   <div data-role="header" data-theme="c">
     <h1>Contact Me</h1>
   </div>
@@ -118,7 +118,7 @@
 </div>
 
 <script id="back-button" type="text/html">
-  <a href="#" data-icon="arrow-l">Back</a>
+  <a href="#<%= route %>" data-icon="arrow-l"><%= title %></a>
 </script>
 
 <script id="gravatar" type="text/html">

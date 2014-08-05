@@ -1,14 +1,27 @@
 $            = require "jquery"
+_            = require "underscore"
 ContactInfo  = require "./contactinfo.coffee"
 ContactsView = require "./contactsview.coffee"
 
 module.exports = NavHelper =
 
 	addBackButtons: ->
-		backHTML = $("#back-button").html()
+		backHTML = _.template $("#back-button").html()
 
-		$("[data-backbtn=true]>[data-role=header]").each ->
-			$(this).prepend(backHTML)
+		$("[data-role=page]").each ->
+			$el     = $(this)
+			backBtn = $el.data("backbtn") || "false"
+
+			return if backBtn is "false"
+
+			title = $el.data("backtitle") || "Back"
+			route = if backBtn in ["index", "true"]
+				""
+			else
+				backBtn
+
+			$el.find("[data-role=header]")
+			.prepend(backHTML {title, route})
 
 	addGravatarIcons: ->
 		gravatarHTML = $("#gravatar").html()
