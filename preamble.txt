@@ -1,0 +1,11 @@
+/**
+ * <%= pkg.name %> v<%= pkg.version %>
+ * <%= pkg.description %>
+ *
+ * This program is NOT free software. It is a personal product of the author
+ * who holds all rights and privileges thereof. You do NOT have permission to
+ * redistribute or modify, neither for commercial, educational, nor personal
+ * use.
+ *
+ * Copyright © <%= new Date().getYear() %>, <%= pkg.author.name %>
+ */

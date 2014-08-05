@@ -1,0 +1,68 @@
+{
+  "name": "devin-contact-app",
+  "private": true,
+  "version": "1.0.0",
+  "description": "A webapp for Devin Weaver's personal contact info",
+  "scripts": {
+    "test": "testem ci"
+  },
+  "author": {
+    "name": "Devin Weaver",
+    "email": "suki@tritarget.org"
+  },
+  "license": "Private-NonCommercial-NoShare-NoCopy",
+  "devDependencies": {
+    "browserify": "^4.2.3",
+    "browserify-shim": "^3.6.0",
+    "coffeeify": "^0.7.0",
+    "event-stream": "^3.1.7",
+    "glob": "^4.0.4",
+    "gulp": "^3.8.6",
+    "gulp-concat": "^2.3.3",
+    "gulp-header": "^1.0.5",
+    "gulp-minify-css": "^0.3.7",
+    "gulp-rimraf": "^0.1.0",
+    "gulp-sass": "^0.7.2",
+    "gulp-serve": "^0.2.0",
+    "gulp-streamify": "0.0.5",
+    "gulp-uglify": "^0.3.1",
+    "gulp-util": "^3.0.0",
+    "testem": "^0.6.17",
+    "through2": "^0.5.1",
+    "vinyl-source-stream": "^0.1.1"
+  },
+  "dependencies": {
+    "bitwise-xor": "0.0.0",
+    "coffee-script": "^1.7.1"
+  },
+  "browserify": {
+    "transform": [
+      "coffeeify",
+      "browserify-shim"
+    ]
+  },
+  "browser": {
+    "backbone": "./bower_components/backbone/backbone.js",
+    "jquery": "./bower_components/jquery/jquery.js",
+    "jquery-mobile": "./bower_components/jquery-mobile-bower/js/jquery.mobile-1.4.2.js",
+    "sinon": "./bower_components/sinon/lib/sinon.js",
+    "underscore": "./bower_components/underscore/underscore.js"
+  },
+  "browserify-shim": {
+    "sinon": "sinon",
+    "underscore": "_",
+    "jquery": "jQuery",
+    "backbone": {
+      "exports": "Backbone",
+      "depends": [
+        "jquery",
+        "underscore"
+      ]
+    },
+    "jquery-mobile": {
+      "depends": [
+        "jquery"
+      ]
+    }
+  }
+}

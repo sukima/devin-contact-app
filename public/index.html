@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Devin Weaver</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="description" content="A mobile accessible goto for personal contact information.">
+  <meta name="author" content="Devin Weaver (@sukima)">
+
+  <link rel="stylesheet" href="style.css" type="text/css">
+  <script src="bundle.js" type="text/javascript"></script>
+
+</head>
+<body>
+
+<!--
+<div id="" data-role="page" data-theme="d" data-backbtn="false" data-gravatar="false">
+  <div data-role="header" data-theme="c">
+    <h1></h1>
+  </div>
+
+  <div data-role="content">
+  </div>
+</div>
+-->
+
+<div id="index" data-role="page" data-theme="d" data-backbtn="false" data-gravatar="false">
+  <div data-role="header" data-theme="c">
+    <h1>Devin Weaver</h1>
+  </div>
+
+  <div role="main" class="ui-content">
+    <div class="dashboard">
+      <div class="ui-grid-solo">
+        <div class="ui-block-a">
+          <img id="selfpic" src="images/self-photo.png" alt="A picture of myself" />
+        </div>
+      </div>
+      <div class="ui-grid-a">
+        <div class="ui-block-a">
+          <a href="#about" class="ui-btn ui-corner-all ui-shadow" data-role="button" data-theme="c">
+            <img src="icons/253-person.png" alt="bust Icon" width="26" height="24"><br>
+            About Me
+          </a>
+        </div>
+        <div class="ui-block-b">
+          <a href="#contact" class="ui-btn ui-corner-all ui-shadow" data-role="button" data-theme="c">
+            <img src="icons/291-idcard.png" alt="ID badge Icon" width="26" height="21"><br>
+            Contact Info
+          </a>
+        </div>
+      </div>
+      <div class="ui-grid-a">
+        <div class="ui-block-a">
+          <a href="#pgp" class="ui-btn ui-corner-all ui-shadow" data-role="button" data-theme="c">
+            <img src="icons/54-lock.png" alt="padlock icon" width="20" height="24"><br>
+            PGP
+          </a>
+        </div>
+        <div class="ui-block-b">
+          <a href="#projects" class="ui-btn ui-corner-all ui-shadow" data-role="button" data-theme="c">
+            <img src="icons/91-beaker-2.png" alt="beaker icon" width="20" height="24"><br>
+            Projects
+          </a>
+        </div>
+      </div>
+      <div class="ui-grid-solo">
+        <div class="ui-block-a">
+          <a href="http://tritarget.org/" rel="external" class="ui-btn ui-corner-all ui-shadow" data-role="button" data-theme="c">
+            <img src="icons/53-house.png" alt="house icon" width="22" height="22" valign="middle">
+            Personal Blog
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="about" data-role="page" data-theme="d" data-backbtn="true" data-gravatar="true">
+  <div data-role="header" data-theme="c">
+    <h1>About Me</h1>
+  </div>
+
+  <div data-role="content">
+    <ul>
+      <li>A JavaScript Expert</li>
+      <li>A CoffeeScript Expert</li>
+      <li>Wrote CoffeeScript plugin for the new CLI build system (<a href="http://sukima.github.io/ti_coffee_plugin"><code>ti_coffee_plugin</code></a>)</li>
+      <li>Work for <a href="http://seeclickfic.com">SeeClickFix.com</a></li>
+      <li>GitHub <a href="https://github.com/sukima">@sukima</a></li>
+    </ul>
+
+    <div data-role="collapsible">
+      <h4>Bio</h4>
+      <p>I am a mobile application developer. Oh, and I also do web development to. You see I am a <em>big</em> fan of JavaScript. I also love Ruby and am head-over-heels for <a href='http://coffeescript.org/'>CoffeeScript</a>.</p>
+      <p>I mainly work on <a href='http://www.appcelerator.com/'>Titanium</a> for the company <a href='http://seeclickfix.com'>SeeClickFix</a>. A company which allows anyone to report and track non-emergency issues anywhere in the world via the internet. This empowers citizens, community groups, media organizations and governments to take care of and improve their neighborhoods.</p>
+      <p>And BTW this little mobile site was made with <a href='http://jquerymobile.com/'>jQuery-mobile</a> so <em>rockzor</em>! 👊😎</p>
+    </div>
+  </div>
+</div>
+
+<div id="contact" data-role="page" data-theme="d" data-backbtn="true" data-gravatar="true">
+  <div data-role="header" data-theme="c">
+    <h1>Contact Me</h1>
+  </div>
+
+  <div data-role="content">
+    <ul data-role="listview"></ul>
+
+    <p class="table-bottom">
+      <a href="http://tritarget.org/files/devin_weaver.vcf" download="devin_weaver.vcf" data-role="button">
+        <img src="icons/291-idcard.png" alt="ID card icon" valign="middle">
+        Download vCard
+      </a>
+    </p>
+  </div>
+</div>
+
+<script id="back-button" type="text/html">
+  <a href="#" data-icon="arrow-l">Back</a>
+</script>
+
+<script id="gravatar" type="text/html">
+  <img class="ui-btn-right" src="http://www.gravatar.com/avatar/a33233f156a5531707f130c28565de69.png?s=32" alt="Gravatar image" width="32" height="32">
+</script>
+
+<script id="template-contact" type="text/html">
+  <li>
+    <a href="<%= href %>">
+      <img src="<%= icon %>" alt="<%= title %> icon">
+      <h2><%= title %></h2>
+      <p><%= value %></p>
+    </a>
+  </li>
+</script>
+
+</body>
+</html>
+
+<!-- vim:set et sw=2: -->

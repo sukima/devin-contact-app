@@ -1,0 +1,28 @@
+/* Custom JQM styling */
+#footer {
+  text-align: center;
+}
+
+.dashboard {
+  text-align: center;
+}
+
+#selfpic {
+  width:  200px;
+  height: 200px;
+}
+
+img.right {
+  display: none;
+}
+
+.table-bottom {
+  margin-top: 40px;
+}
+
+@media screen and (max-width: 320px) {
+  #selfpic {
+    width:  114px;
+    height: 114px;
+  }
+}

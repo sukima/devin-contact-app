@@ -1,0 +1,24 @@
+{
+  "name": "devin",
+  "version": "0.0.0",
+  "authors": [
+    ""
+  ],
+  "license": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "underscore": "~1.6.0",
+    "backbone": "~1.1.2",
+    "jquery-mobile-bower": "~1.4.2"
+  },
+  "devDependencies": {
+    "sinon": "~1.10.3"
+  }
+}
