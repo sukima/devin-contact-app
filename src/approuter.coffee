@@ -11,7 +11,6 @@ class AppRouter extends Backbone.Router
     "projects": -> @changeTo("#projects")
 
   changeTo: (pageSelector) ->
-    console.log "Loading #{pageSelector}"
     $("body").pagecontainer "change", $(pageSelector)
 
 module.exports = AppRouter
