@@ -1,5 +1,18 @@
-{
-  "Current": "<strong>Ipsum dolorum commodi</strong> tempora quia corporis quaerat molestiae obcaecati reiciendis officiis voluptates facere obcaecati sit ipsum? Beatae voluptatem atque quo quidem fuga? Eligendi ipsa facilis ad fugiat dolorum modi nulla.",
-  "Outdated": "<em>Elit tenetur perspiciatis</em> temporibus optio optio laboriosam debitis. Velit aspernatur eveniet inventore architecto et iste recusandae quod eveniet provident sed nulla reprehenderit facere ducimus quis. Labore assumenda alias error veniam.",
-  "New": "<strong>Adipisicing ut laborum</strong> aspernatur quos dolorem! Asperiores alias aut iusto fugiat distinctio adipisci esse. Minima repellat voluptatibus saepe totam ad eius! Odio cumque alias soluta ab quod! Rem consequuntur expedita?"
-}
+[
+  {
+    "title": "Highlights",
+    "url": "/projects/projects.html"
+  },
+  {
+    "title": "Sample Code",
+    "url": "/projects/exercises.html"
+  },
+  {
+    "title": "Deprecated and Outdated",
+    "url": "/projects/deprecated.html"
+  },
+  {
+    "title": "Incubator",
+    "url": "/projects/incubator.html"
+  }
+]

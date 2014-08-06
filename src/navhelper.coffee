@@ -65,5 +65,6 @@ module.exports = NavHelper =
 		projectsView = new ProjectsView(collection: projects)
 
 		projects.fetch(reset: true)
+		.then(projects.fetchContent)
 		.then(renderViewInto projectsView, "#projects")
 		.fail(renderErrorInto "#projects")

@@ -5,7 +5,13 @@ class Projects extends Backbone.Collection
 
   url: "/projects.json"
 
-  parse: (resp, options) ->
-    _.map resp, (content, section) -> {section, content}
+  initialize: ->
+    _.bindAll this, "fetchContent"
+
+  fetchContent: ->
+    contentPromises = @map (model) ->
+      $.ajax(url: model.get("url"), dataType: "text/html")
+      .then (data) -> model.set("content", data)
+    $.when(contentPromises...)
 
 module.exports = Projects
