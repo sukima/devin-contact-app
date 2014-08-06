@@ -4,11 +4,11 @@ Backbone = require "backbone"
 
 class PGPView extends Backbone.View
 
-	initialize: ->
-		@template = _.template $("#template-pgp").html()
+  initialize: ->
+    @template = _.template $("#template-pgp").html()
 
-	render: ->
+  render: ->
     @$el.html(@template @model.toJSON())
-		this
+    this
 
 module.exports = PGPView
