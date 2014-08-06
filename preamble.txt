@@ -7,5 +7,5 @@
  * redistribute or modify, neither for commercial, educational, nor personal
  * use.
  *
- * Copyright © <%= new Date().getYear() %>, <%= pkg.author.name %>
+ * Copyright © <%= new Date().getFullYear() %>, <%= pkg.author.name %>
  */
