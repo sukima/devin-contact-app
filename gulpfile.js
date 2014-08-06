@@ -22,9 +22,10 @@ var pkg         = require('./package.json');
 var isProduction = gutil.env.production || gutil.env.prod;
 var infoFile     = gutil.env.info || './info.json';
 
-var destDir  = gutil.env.prefix || './public';
-var preamble = './preamble.txt';
-var builds   = {
+var assetsDir = './public';
+var destDir   = gutil.env.prefix || assetsDir;
+var preamble  = './preamble.txt';
+var builds    = {
   bundle: {
     entries: ['./src/app.coffee'],
     output: 'bundle.js'
@@ -134,7 +135,19 @@ gulp.task('watch', ['browserify', 'style', 'info'], function() {
 
 gulp.task('server', ['watch'], serve(destDir));
 
-gulp.task('default', ['browserify', 'style', 'info'], function() {
+gulp.task('copy-assets', function() {
+  if (destDir === assetsDir) { return; }
+
+  var includes = path.join(assetsDir, '**/*');
+  var excludes = Object.keys(builds).map(function(buildName) {
+    return '!' + path.join(assetsDir, builds[buildName].output);
+  });
+
+  return gulp.src([includes].concat(excludes))
+    .pipe(gulp.dest(destDir));
+});
+
+gulp.task('default', ['copy-assets', 'browserify', 'style', 'info'], function() {
   gutil.log('Build environment: ' + (
     isProduction ?
     gutil.colors.blue('production') :
