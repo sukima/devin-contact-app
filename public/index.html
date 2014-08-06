@@ -10,12 +10,11 @@
 
   <link rel="stylesheet" href="style.css" type="text/css">
   <script src="bundle.js" type="text/javascript"></script>
-
 </head>
 <body>
 
-<div id="index" data-role="page" data-theme="d" data-backbtn="false" data-gravatar="false">
-  <div data-role="header" data-theme="c">
+<div id="index" data-role="page" data-backbtn="false" data-gravatar="false">
+  <div data-role="header">
     <h1>Devin Weaver</h1>
   </div>
 
@@ -28,13 +27,13 @@
       </div>
       <div class="ui-grid-a">
         <div class="ui-block-a">
-          <a href="#about" class="ui-btn ui-corner-all ui-shadow" data-role="button" data-theme="c">
+          <a href="#about" class="ui-btn ui-corner-all ui-shadow" data-role="button">
             <img src="icons/253-person.png" alt="bust Icon" width="26" height="24"><br>
             About Me
           </a>
         </div>
         <div class="ui-block-b">
-          <a href="#contact" class="ui-btn ui-corner-all ui-shadow" data-role="button" data-theme="c">
+          <a href="#contact" class="ui-btn ui-corner-all ui-shadow" data-role="button">
             <img src="icons/291-idcard.png" alt="ID badge Icon" width="26" height="21"><br>
             Contact Info
           </a>
@@ -42,13 +41,13 @@
       </div>
       <div class="ui-grid-a">
         <div class="ui-block-a">
-          <a href="#pgp" class="ui-btn ui-corner-all ui-shadow" data-role="button" data-theme="c">
+          <a href="#pgp" class="ui-btn ui-corner-all ui-shadow" data-role="button">
             <img src="icons/54-lock.png" alt="padlock icon" width="20" height="24"><br>
             PGP
           </a>
         </div>
         <div class="ui-block-b">
-          <a href="#projects" class="ui-btn ui-corner-all ui-shadow" data-role="button" data-theme="c">
+          <a href="#projects" class="ui-btn ui-corner-all ui-shadow" data-role="button">
             <img src="icons/91-beaker-2.png" alt="beaker icon" width="20" height="24"><br>
             Projects
           </a>
@@ -56,7 +55,7 @@
       </div>
       <div class="ui-grid-solo">
         <div class="ui-block-a">
-          <a href="http://tritarget.org/" rel="external" class="ui-btn ui-corner-all ui-shadow" data-role="button" data-theme="c">
+          <a href="http://tritarget.org/" rel="external" class="ui-btn ui-corner-all ui-shadow" data-role="button">
             <img src="icons/53-house.png" alt="house icon" width="22" height="22" valign="middle">
             Personal Blog
           </a>
@@ -66,8 +65,8 @@
   </div>
 </div>
 
-<div id="about" data-role="page" data-theme="d" data-backbtn="index" data-gravatar="true">
-  <div data-role="header" data-theme="c">
+<div id="about" data-role="page" data-backbtn="index" data-gravatar="true">
+  <div data-role="header">
     <h1>About Me</h1>
   </div>
 
@@ -89,8 +88,8 @@
   </div>
 </div>
 
-<div id="contact" data-role="page" data-theme="d" data-backbtn="index" data-gravatar="true">
-  <div data-role="header" data-theme="c">
+<div id="contact" data-role="page" data-backbtn="index" data-gravatar="true">
+  <div data-role="header">
     <h1>Contact Me</h1>
   </div>
 
@@ -98,7 +97,7 @@
     <ul data-role="listview"></ul>
 
     <p class="table-bottom">
-      <a href="http://tritarget.org/files/devin_weaver.vcf" download="devin_weaver.vcf" data-role="button">
+      <a href="http://tritarget.org/files/devin_weaver.vcf" download="devin_weaver.vcf" class="ui-btn ui-corner-all ui-shadow" data-role="button">
         <img src="icons/291-idcard.png" alt="ID card icon" valign="middle">
         Download vCard
       </a>
@@ -106,21 +105,21 @@
   </div>
 </div>
 
-<div id="pgp" data-role="page" data-theme="d" data-backbtn="index" data-gravatar="true">
-  <div data-role="header" data-theme="c">
+<div id="pgp" data-role="page" data-backbtn="index" data-gravatar="true">
+  <div data-role="header">
     <h1>Public PGP Key</h1>
   </div>
 
   <div data-role="content"></div>
 </div>
 
-<div id="projects" data-role="page" data-theme="d" data-backbtn="index" data-gravatar="true">
-  <div data-role="header" data-theme="c">
+<div id="projects" data-role="page" data-backbtn="index" data-gravatar="true">
+  <div data-role="header">
     <h1>Projects</h1>
   </div>
 
   <div data-role="content">
-    <a href="http://tritarget.org/blog/categories/coding/" rel="external" data-role="button">
+    <a href="http://tritarget.org/blog/categories/coding/" rel="external" class="ui-btn ui-corner-all ui-shadow" data-role="button">
       <img src="icons/166-newspaper.png" alt="newspaper icon" width="28" height="23" valign="middle">
       View my programming blog
     </a>
@@ -128,7 +127,7 @@
 </div>
 
 <script id="back-button" type="text/html">
-  <a href="#<%= route %>" data-icon="arrow-l"><%= title %></a>
+  <a href="#<%= route %>" class="ui-btn ui-corner-all ui-shadow ui-icon-arrow-l ui-btn-icon-left"><%= title %></a>
 </script>
 
 <script id="gravatar" type="text/html">
@@ -151,7 +150,7 @@
     <li><h2>Fingerprint</h2><p><tt><%= fingerprint_parts[0] %><br><%= fingerprint_parts[1] %></tt></p></li>
   </ul>
 
-  <a href="<%= key_url %>" download="<%= filename %>" data-role="button">
+  <a href="<%= key_url %>" download="<%= filename %>" class="ui-btn ui-corner-all ui-shadow" data-role="button">
     <img src="icons/54-lock.png" alt="lock icon" valign="middle">
     Download PGP Key
   </a>
