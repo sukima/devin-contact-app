@@ -50,6 +50,21 @@ var builds    = {
   }
 };
 
+var publicFilesGlobs = (function() {
+  var globs;
+  return function() {
+    if (globs) { return globs; }
+
+    var includes = path.join(assetsDir, '**/*');
+    var excludes = Object.keys(builds).map(function(buildName) {
+      return '!' + path.join(assetsDir, builds[buildName].output);
+    });
+
+    globs = [includes].concat(excludes);
+    return globs;
+  };
+})();
+
 function globFiles(entries) {
   return entries.map(function(entry) {
     return glob.sync(entry);
@@ -131,6 +146,9 @@ gulp.task('watch', ['browserify', 'style', 'info'], function() {
 
   gulp.watch(infoFile, ['info'])
   .on('change', reportChange);
+
+  gulp.watch(publicFilesGlobs(), ['copy-assets'])
+  .on('change', reportChange);
 });
 
 gulp.task('server', ['watch'], serve(destDir));
@@ -138,12 +156,7 @@ gulp.task('server', ['watch'], serve(destDir));
 gulp.task('copy-assets', function() {
   if (destDir === assetsDir) { return; }
 
-  var includes = path.join(assetsDir, '**/*');
-  var excludes = Object.keys(builds).map(function(buildName) {
-    return '!' + path.join(assetsDir, builds[buildName].output);
-  });
-
-  return gulp.src([includes].concat(excludes))
+  return gulp.src(publicFilesGlobs())
     .pipe(gulp.dest(destDir));
 });
 
