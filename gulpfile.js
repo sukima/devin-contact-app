@@ -20,8 +20,9 @@ var encryptInfo = require('./lib/encryptinfo');
 var pkg         = require('./package.json');
 
 var isProduction = gutil.env.production || gutil.env.prod;
+var infoFile     = gutil.env.info || './info.json';
 
-var destDir  = './public';
+var destDir  = gutil.env.prefix || './public';
 var preamble = './preamble.txt';
 var builds   = {
   bundle: {
@@ -43,7 +44,7 @@ var builds   = {
     ]
   },
   info: {
-    entries: ['./info.json'],
+    entries: [infoFile],
     output: 'info.json'
   }
 };
@@ -122,9 +123,13 @@ gulp.task('clean', function() {
 
 gulp.task('watch', ['browserify', 'style', 'info'], function() {
   gulp.watch(['./src/**/*.js', './src/**/*.coffee'], ['browserify'])
-    .on('change', reportChange);
+  .on('change', reportChange);
+
   gulp.watch(['./scss/**/*.scss'], ['style'])
-    .on('change', reportChange);
+  .on('change', reportChange);
+
+  gulp.watch(infoFile, ['info'])
+  .on('change', reportChange);
 });
 
 gulp.task('server', ['watch'], serve(destDir));
