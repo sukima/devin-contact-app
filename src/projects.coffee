@@ -10,7 +10,7 @@ class Projects extends Backbone.Collection
 
   fetchContent: ->
     contentPromises = @map (model) ->
-      $.ajax(url: model.get("url"), dataType: "text/html")
+      $.ajax(url: model.get("url"), dataType: "html")
       .then (data) -> model.set("content", data)
     $.when(contentPromises...)
 
