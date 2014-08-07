@@ -2,7 +2,7 @@ Backbone = require "backbone"
 
 class ErrorView extends Backbone.View
 
-  className: "error"
+  className: "alert alert-danger"
 
   render: (err={}, type, reason) ->
     type = if err.status && err.status >= 400
