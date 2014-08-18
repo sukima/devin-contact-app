@@ -1,7 +1,7 @@
 {
   "name": "devin-contact-app",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A webapp for Devin Weaver's personal contact info",
   "scripts": {
     "test": "testem ci"
@@ -10,7 +10,7 @@
     "name": "Devin Weaver",
     "email": "suki@tritarget.org"
   },
-  "license": "Private-NonCommercial-NoShare-NoCopy",
+  "license": "Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International",
   "devDependencies": {
     "browserify": "^4.2.3",
     "browserify-shim": "^3.6.0",
