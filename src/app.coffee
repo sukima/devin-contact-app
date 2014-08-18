@@ -12,6 +12,7 @@ $(document).on "mobileinit", ->
 $ ->
   NavHelper.addBackButtons()
   NavHelper.addGravatarIcons()
+  NavHelper.loadAbout()
   NavHelper.loadContactInfo()
   NavHelper.loadPGPInfo()
   NavHelper.loadProjects()

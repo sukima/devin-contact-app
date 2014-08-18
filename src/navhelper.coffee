@@ -7,6 +7,7 @@ PGPView      = require "./pgpview.coffee"
 Projects     = require "./projects.coffee"
 ProjectsView = require "./projectsview.coffee"
 ErrorView    = require "./errorview.coffee"
+pkg          = require "../package.json"
 
 renderViewInto = (view, pageEl) ->
   pageEl = $(pageEl)
@@ -68,3 +69,9 @@ module.exports = NavHelper =
     .then(projects.fetchContent)
     .then(renderViewInto projectsView, "#projects")
     .fail(renderErrorInto "#projects")
+
+  loadAbout: ->
+    $("[data-pkg]").each ->
+      el = $(this)
+      prop = el.data "pkg"
+      el.text pkg[prop]
