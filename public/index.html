@@ -86,8 +86,45 @@
     <div data-role="collapsible">
       <h4>Bio</h4>
       <p>I am a mobile application developer. Oh, and I also do web development to. You see I am a <em>big</em> fan of JavaScript. I also love Ruby and am head-over-heels for <a href='http://coffeescript.org/'>CoffeeScript</a>.</p>
-      <p>I mainly work on <a href='http://www.appcelerator.com/'>Titanium</a> for the company <a href='http://seeclickfix.com'>SeeClickFix</a>. A company which allows anyone to report and track non-emergency issues anywhere in the world via the internet. This empowers citizens, community groups, media organizations and governments to take care of and improve their neighborhoods.</p>
-      <p>And BTW this little mobile site was made with <a href='http://jquerymobile.com/'>jQuery-mobile</a> so <em>rockzor</em>! 👊😎</p>
+      <p>I mainly work on <a href="http://www.appcelerator.com/">Titanium</a> for the company <a href="http://seeclickfix.com">SeeClickFix</a>. A company which allows anyone to report and track non-emergency issues anywhere in the world via the internet. This empowers citizens, community groups, media organizations and governments to take care of and improve their neighborhoods.</p>
+    </div>
+
+    <div data-role="collapsible">
+      <h4>About this App</h4>
+      <p>
+        This little mobile site was made with <a href="http://jquerymobile.com/">jQuery-mobile</a>.
+        It's design uses <a href="http://backbonejs.org">Backbone</a>,
+        <a href="http://browserify.org">Browserify</a>,
+        and <a href="http://coffeescript.org">CoffeeScript</a>. <em>rockzor</em>! 👊😎
+      </p>
+      <p><a href="https://github.com/sukima/devin-contact-app/">The source</a> is available for your own education and entertainment. It is not alowed to be used as is without permission.</p>
+      <h4>Architecture</h4>
+      <p>The architecture of this site is a little unique and was based on the following requirements:</p>
+      <ul>
+        <li>Static content with client-side JavaScript</li>
+        <li>Mobile first design. Site will be linked to via a QR-Code on business cards and scanned from a smart-phone</li>
+        <li>Compatible with relative paths (can be hosted at path <code>/</code> or <code>/path/</code>)</li>
+        <li>Contact information is obfuscated from spiders and spam-bots</li>
+      </ul>
+      <p>All of these were handled either by jQuery-mobile or Backbone. The last piece was a bit of custom code.</p>
+      <h4>Crypto</h4>
+      <p>The predecessor of this app obfuscated contact info from spam-bots by taking the HTML markup and XOR'ing it with a single repeated digit. It then put the encrypted text into the page source in a <code>&lt;script&gt;</code> tag which reversed the process and did a <code>document.write</code>. I felt this solution was inappropriate for a JavaScript application and I felt I could do better.</p>
+      <p>Since I was already precompiling the app with Browserify I had access to Browserify's crypto library. At the time I wrote the code there was no encryption available but there was a <code>pbkdf2</code> function that offered good randomness. So I developed an algorythm that would use XOR encryption to create a JSON document that this app would process and render the <a href="#contact">contact</a> page.</p>
+      <p>One of the problems encountered with this is that the key needed to be known by the decryption code. Being that there wasn't any simple public/private key based encryption code for JavaScript  and I didn't want more code brought in I opted to store the key with the data. It's simply interleaved into the encrypted output.</p>
+      <p>Here is the algorithm I used to encrypt; and in reverse to decrypt:</p>
+      <ol>
+        <li>Read the content info from a JSON file</li>
+        <li>Reformat the contact info into a <em>compressed</em> string of data (essentially remove whitespace)</li>
+        <li>Generate a random <a href="http://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_.28random.29">UUID Version 4</a> (includes timestamp as part of the generation process)</li>
+        <li>Use <code>pbkdf2</code> with the UUID as the password and an empty seed to make a key the same length as the data</li>
+        <li>XOR the data and the key</li>
+        <li>Interleave the key into the now encrypted data (data: <code>abc</code>, key: <code>xyz</code> becomes <code>axbycz</code>)</li>
+        <li>Base64 encode</li>
+        <li>Wrap the base64 string in a JSON object</li>
+      </ol>
+      <h4>Why?!</h4>
+      <p>Because at 3:00 AM on a Saturday there was no-one there to stop me.</p>
+      <p>If you are interested in preventing me from doing things like this again <a href="#contact">contact</a> me and give me a fun puzzle to work on instead.</p>
     </div>
   </div>
 </div>
