@@ -2,9 +2,9 @@ require('coffee-script/register');
 var fs          = require('fs');
 var path        = require('path');
 var glob        = require('glob');
+var del         = require('del');
 var gulp        = require('gulp');
 var gutil       = require('gulp-util');
-var rimraf      = require('gulp-rimraf');
 var uglify      = require('gulp-uglify');
 var streamify   = require('gulp-streamify');
 var header      = require('gulp-header');
@@ -130,11 +130,12 @@ gulp.task('browserify', function() {
     .on("end", reportSaved('bundle'));
 });
 
-gulp.task('clean', function() {
+gulp.task('clean', function(done) {
   var buildFiles = Object.keys(builds).map(function(build) {
     return path.join(destDir, builds[build].output);
   });
-  return gulp.src(buildFiles, {read: false}).pipe(rimraf());
+
+  del(buildFiles, done);
 });
 
 gulp.task('watch', ['browserify', 'style', 'info'], function() {
