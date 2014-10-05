@@ -1,5 +1,5 @@
 Backbone  = require "backbone"
-BadCipher = require "./badcipher.coffee"
+BadCipher = require "bad-cipher"
 
 class ContactInfo extends Backbone.Collection
 

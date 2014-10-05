@@ -32,6 +32,7 @@
     "vinyl-source-stream": "^0.1.1"
   },
   "dependencies": {
+    "bad-cipher": "git://github.com/sukima/bad-cipher#1.0.0",
     "bitwise-xor": "0.0.0",
     "coffee-script": "^1.7.1"
   },

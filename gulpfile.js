@@ -16,7 +16,7 @@ var source      = require('vinyl-source-stream');
 var es          = require('event-stream');
 var browserify  = require('browserify');
 var coffeeify   = require('coffeeify');
-var encryptInfo = require('./lib/encryptinfo');
+var encryptInfo = require('bad-cipher/gulp-encrypt');
 var pkg         = require('./package.json');
 
 var isProduction = gutil.env.production || gutil.env.prod;
