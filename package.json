@@ -5,7 +5,8 @@
   "description": "A webapp for Devin Weaver's personal contact info",
   "scripts": {
     "test": "testem ci",
-    "build": "gulp --prod"
+    "build": "gulp --prod",
+    "bower": "bower install"
   },
   "author": {
     "name": "Devin Weaver",
