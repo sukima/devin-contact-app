@@ -8,7 +8,7 @@ var gutil       = require('gulp-util');
 var uglify      = require('gulp-uglify');
 var streamify   = require('gulp-streamify');
 var header      = require('gulp-header');
-var sass        = require('gulp-sass');
+var less        = require('gulp-less');
 var concat      = require('gulp-concat');
 var minifyCss   = require('gulp-minify-css');
 var serve       = require('gulp-serve');
@@ -38,10 +38,10 @@ var builds    = {
     output: 'specs.js'
   },
   styles: {
-    entries: ['./scss/style.scss'],
+    entries: ['./styles/style.less'],
     output: 'style.css',
-    bower: [
-      './bower_components/jquery-mobile-bower/css/jquery.mobile-1.4.2.css'
+    lessIncludePaths: [
+      './bower_components/jquery-mobile-bower/css'
     ]
   },
   info: {
@@ -101,11 +101,9 @@ gulp.task('info', function() {
     .on("end", reportSaved('info'));
 });
 
-gulp.task('style', function() {
-  var libsStream = gulp.src(builds.styles.bower);
-  var sassStream = gulp.src(builds.styles.entries).pipe(sass());
-  return es.concat(libsStream, sassStream)
-    .pipe(concat(builds.styles.output))
+gulp.task('styles', function() {
+  gulp.src(builds.styles.entries)
+    .pipe(less({paths: builds.styles.lessIncludePaths}))
     .pipe(isProduction ? minifyCss({keepSpecialComments: 0}) : gutil.noop())
     .pipe(streamHeaderFile(preamble))
     .pipe(gulp.dest(destDir))
@@ -138,11 +136,11 @@ gulp.task('clean', function(done) {
   del(buildFiles, done);
 });
 
-gulp.task('watch', ['browserify', 'style', 'info'], function() {
+gulp.task('watch', ['browserify', 'styles', 'info'], function() {
   gulp.watch(['./src/**/*.js', './src/**/*.coffee'], ['browserify'])
   .on('change', reportChange);
 
-  gulp.watch(['./scss/**/*.scss'], ['style'])
+  gulp.watch(['./styles/**/*.less'], ['styles'])
   .on('change', reportChange);
 
   gulp.watch(infoFile, ['info'])
@@ -161,7 +159,7 @@ gulp.task('copy-assets', function() {
     .pipe(gulp.dest(destDir));
 });
 
-gulp.task('default', ['copy-assets', 'browserify', 'style', 'info'], function() {
+gulp.task('default', ['copy-assets', 'browserify', 'styles', 'info'], function() {
   gutil.log('Build environment: ' + (
     isProduction ?
     gutil.colors.blue('production') :
