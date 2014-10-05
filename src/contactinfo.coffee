@@ -3,7 +3,7 @@ BadCipher = require "bad-cipher"
 
 class ContactInfo extends Backbone.Collection
 
-  url: "info.json"
+  url: "/info.json"
 
   parse: (resp, options) ->
     if resp.edata
