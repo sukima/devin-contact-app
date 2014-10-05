@@ -6,7 +6,8 @@
   "scripts": {
     "test": "testem ci",
     "build": "gulp --prod",
-    "bower": "bower install"
+    "bower": "bower install",
+    "clean": "gulp clean"
   },
   "author": {
     "name": "Devin Weaver",
