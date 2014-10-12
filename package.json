@@ -1,7 +1,7 @@
 {
   "name": "devin-contact-app",
   "private": true,
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "A webapp for Devin Weaver's personal contact info",
   "scripts": {
     "test": "testem ci",
